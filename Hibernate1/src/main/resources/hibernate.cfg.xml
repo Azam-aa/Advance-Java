@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration SYSTEM
+        "http://hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+
+        <!-- SQL Dialect -->
+        <property name="hibernate.dialect">
+            org.hibernate.dialect.MySQLDialect
+        </property>
+
+        <!-- JDBC Driver -->
+        <property name="hibernate.connection.driver_class">
+            com.mysql.cj.jdbc.Driver
+        </property>
+
+        <!-- Database URL -->
+        <property name="hibernate.connection.url">
+            jdbc:mysql://localhost:3306/hiber
+        </property>
+
+        <!-- Database Username -->
+        <property name="hibernate.connection.username">
+            root
+        </property>
+
+        <!-- Database Password -->
+        <property name="hibernate.connection.password">
+            1234
+        </property>
+
+        <!-- Mapping File -->
+        <property name="show_sql">true</property>
+        
+        
+    </session-factory>
+</hibernate-configuration>
