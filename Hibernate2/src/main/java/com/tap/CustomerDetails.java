@@ -1,8 +1,10 @@
 package com.tap;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -13,7 +15,7 @@ public class CustomerDetails {
 	@Column(name="id")
 	private int id;
 	
-	@Column(name="email")
+	@Column(name="email")  
 	private String email;
 	
 	@Column(name="phonenumber")
@@ -21,6 +23,11 @@ public class CustomerDetails {
 	
 	@Column(name="address")
 	private String address;
+	
+	@OneToOne(mappedBy = "cid", cascade = CascadeType.ALL)
+	private Customer customer;
+	
+	
 	
 	public CustomerDetails() {
 		
@@ -60,6 +67,16 @@ public class CustomerDetails {
 
 	public String getAddress() {
 		return address;
+	}
+	
+	
+
+	public Customer getCustomer() {
+		return customer;
+	}
+
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
 	}
 
 	public void setAddress(String address) {

@@ -1,0 +1,75 @@
+package com.tap;
+
+
+
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "orders")
+public class Orders {
+		
+	@Id
+	@Column(name="id")
+	private int id;
+	
+	@Column(name="item")
+	private String item;
+	
+	@Column(name="price")
+	private int price;
+	
+    @ManyToOne( cascade = CascadeType.ALL )
+	@JoinColumn(name="cust")
+	private Customer cust;
+	
+	public Orders() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public Orders(int id, String item, int price, Customer cust) {
+		super();
+		this.id = id;
+		this.item = item;
+		this.price = price;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getItem() {
+		return item;
+	}
+
+	public void setItem(String item) {
+		this.item = item;
+	}
+
+	public int getPrice() {
+		return price;
+	}
+
+	public void setPrice(int price) {
+		this.price = price;
+	}
+
+	public Customer getCust() {
+		return cust;
+	}
+
+	public void setCust(Customer cust) {
+		this.cust = cust;
+	}
+	
+	
+}

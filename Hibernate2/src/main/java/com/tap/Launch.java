@@ -16,15 +16,45 @@ public class Launch {
 		cfg.configure();
 		cfg.addAnnotatedClass(Customer.class);
 		cfg.addAnnotatedClass(CustomerDetails.class);
+		cfg.addAnnotatedClass(Orders.class);
 		SessionFactory sessionFactory=cfg.buildSessionFactory();
 		Session session=sessionFactory.openSession();
 		Transaction tr = session.beginTransaction();
- 		
+		
+		
+	 	Orders noodles=new Orders(501,"Noodles",150, null);
+	 	Orders biryani=new Orders(502,"biryani",250, null);
+	 	Orders gobi=new Orders(503,"gobi",75, null);
+	 	
+	 	Customer tim = session.get(Customer.class, 1);
+	 	noodles.setCust(tim);
+	 	biryani.setCust(tim);
+	 	gobi.setCust(tim);
+	 	
+	 	
+	 	session.save(noodles);
+	 	session.save(biryani);
+	 	session.save(gobi);
+	 	
+	 	
+		
+		
+		
+		
+		
+		
+
+//		CustomerDetails custDetails=session.get(CustomerDetails.class, 101);
+//		Customer c=custDetails.getCustomer();
+//		System.out.println(custDetails);
+//		System.out.println(c);   Display from CustomerDetails to customer relation
+		
+		
+		
 //		Customer c = session.get(Customer.class, 2);
 //		 CustomerDetails custDetails =c.getCid();
 //		 System.out.println(c);
 //		 System.out.print(custDetails);  DISPLAY
-		
 		
 		
 		
